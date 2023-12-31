@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid justify-content-center">
+      <a class="navbar-brand text-white" data-th-href="@{/index.html}">SolarSG</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" data-th-href="@{/index.html}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Buyer's Guide
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" data-th-href="@{/guide/summary}">Summary</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Benefits</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Detailed Topics
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" data-th-href="@{/topics/sellback}">Sellback of Solar Generated Electricity</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+  <hr>
+  <!-- <div class="container-fluid w-75">
+    <div class="card text-bg-dark d-flex justify-content-center position-relative">
+      <img class="card-img-top" data-th-src="@{${'/images/PV_System_Image1_stretched.jpg'}}" alt="Image of Solar PV System">
+      <div class="card-img-overlay">
+        <br><br><br><br>
+        <h1 class="card-title text-center" style="font-size: 5rem;">Detailed Topics</h1>
+        <br>
+        <h1 class="card-text text-center">Sellback of Solar Generated Electricity</h1>
+      </div>
+    </div>
+  </div> -->
+  <div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card text-bg-dark position-relative" >
+                <img data-th-src="@{${'/images/PV_System_Image1_stretched.jpg'}}" class="card-img img-responsive" alt="Image of Solar PV System" style="min-height: 600px;">
+                <div class="card-img-overlay position-absolute top-50 start-50 translate-middle">
+                  <h1 class="card-title text-center">Request for Quote</h1>
+                  <br>
+                  <h1 class="card-title text-center">View Quote Request Details</h1>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
+  
+  <br>
+  <div class="container">
+    <div class="row">
+        <div class="col col-2">
+            <div class="flex-shrink-0 p-3 sticky-top" >
+                <!-- style="width: 280px;" -->
+                <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+                  <span class="fs-5 fw-semibold">Content</span>
+                </a>
+                <ul class="list-unstyled ps-0">
+                  <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">
+                      Home
+                    </button>
+                  </li>
+                  <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                      Buyer's Guide
+                    </button>
+                    <div class="collapse" id="dashboard-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a data-th-href="@{/guide/summary}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Summary</a></li>
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Benefits</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                      Detailed Topics
+                    </button>
+                    <div class="collapse" id="orders-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a data-th-href="@{/topics/sellback}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sellback of Solar Generated Electricity</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="border-top my-3"></li>
+                  <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                      Account
+                    </button>
+                    <div class="collapse" id="account-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a></li>
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sign out</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col col-1"></div>
+        <div class="col col-9">
+          <div>
+            <h1>Quote #<span data-th-text="${idNumber}"></span></h1>
+            <p>Thank you for your quote request. Your request will be sent to Solar PV contractors in Singapore for review. You will be contacted via email by the contractors for further interaction and arranging a suitable timing to view building/site for the installation.</p>
+            <p>If you are planning to contact contractors you know directly, you can export the request details below.</p>            
+          </div>
+          <div>
+            <table class="table table-bordered">
+                <thead >
+                    <th>Fields</th>
+                    <th>Details</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Given Name</td>
+                        <td data-th-text="*{quoteRequest.givenName}"></td>
+                    </tr>
+                    <tr>
+                        <td>Family Name</td>
+                        <td data-th-text="*{quoteRequest.familyName}"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td data-th-text="*{quoteRequest.email}"></td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Phone Number</td>
+                        <td data-th-text="*{quoteRequest.mobileNo}"></td>
+                    </tr>
+                    <tr>
+                        <td>Contact Address</td>
+                        <td data-th-text="*{quoteRequest.contactAddress}"></td>
+                    </tr>
+                    <tr>
+                        <td>Site Address</td>
+                        <td data-th-text="*{quoteRequest.siteAddress}"></td>
+                    </tr>
+                    <tr>
+                        <td>Site Type</td>
+                        <td data-th-text="*{quoteRequest.siteType}"></td>
+                    </tr>
+                    <tr>
+                        <td>Type of Roof</td>
+                        <td data-th-text="*{quoteRequest.roofType}"></td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Bill</td>
+                        <td data-th-text="*{quoteRequest.monthlyBill}"></td>
+                    </tr>
+                    <tr>
+                        <td>Electricity Retailer</td>
+                        <td data-th-text="*{quoteRequest.electricityRetailer}"></td>
+                    </tr>
+                    <tr>
+                        <td>Electricity Usage</td>
+                        <td data-th-switch="*{quoteRequest.electricityUsage}">
+                            <span data-th-case="'Morning and Evening'">Mostly in the Mornings and Evenings</span>
+                            <span data-th-case="'Equal'">Equal throughout the Day</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Expected Install Time</td>
+                        <td data-th-switch="*{quoteRequest.expectedInstallTime}">
+                            <span data-th-case="'ASAP'">As Soon As Possible</span>
+                            <span data-th-case="'3-6 months'">Within 3-6 months</span>
+                            <span data-th-case="'6-12 months'">Within 6-12 months</span>
+                            <span data-th-case="'Undecided'">Undecided</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Contact Contractors?</td>
+                        <td data-th-switch="*{quoteRequest.contactPermission}">
+                            <span data-th-case="true">Yes</span>
+                            <span data-th-case="false">No</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+          <br>
+          <div>
+            <a href="#" class="btn btn-danger">Export Details as JSON</a>
+          </div>
+        </div>
+        
+    </div>
+    
+  </div>
+    
+</body>
+</html>

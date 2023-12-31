@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarSG Buyer's Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid justify-content-center">
+      <a class="navbar-brand text-white" data-th-href="@{/index.html}">SolarSG</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" data-th-href="@{/index.html}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Buyer's Guide
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" data-th-href="@{/guide/summary}">Summary</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Benefits</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Detailed Topics
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" data-th-href="@{/topics/sellback}">Sellback of Solar Generated Electricity</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+  <hr>
+  <!-- <div class="container-fluid w-75">
+    <div class="card text-bg-dark d-flex justify-content-center">
+      <img class="card-img-top" data-th-src="@{${'/images/PV_System_Image1_stretched.jpg'}}" alt="Image of Solar PV System">
+      <div class="card-img-overlay">
+        <br><br><br><br>
+        <h1 class="card-title text-center" style="font-size: 5rem;">Buyer's Guide to Solar in Singapore</h1>
+        <br>
+        <h1 class="card-text text-center">Summary</h1>
+      </div>
+    </div>
+  </div> -->
+  <div class="container d-none d-sm-block">
+    <div class="row">
+        <div class="col">
+            <div class="card text-bg-dark position-relative" >
+                <img data-th-src="@{${'/images/PV_System_Image1_stretched.jpg'}}" class="card-img" alt="Image of Solar PV System" style="min-height: 300px;min-width: 600px;">
+                <div class="card-img-overlay position-absolute top-50 start-50 translate-middle">
+                  <h1 class="card-title text-center" style="font-size: clamp(2rem, 3vw, 5rem);">Buyer's Guide to Solar in Singapore</h1>
+                  <br>
+                  <h1 class="card-title text-center">Summary</h1>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
+  <div class="container d-block d-sm-none">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center" style="font-size: 3rem;">Buyer's Guide to Solar in Singapore</h1>
+        <br>
+        <h1 class="text-center">Summary</h1>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+        <div class="col col-sm-2">
+            <div class="flex-shrink-0 p-3 sticky-top" >
+                <!-- style="width: 280px;" -->
+                <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+                  <span class="fs-5 fw-semibold">Content</span>
+                </a>
+                <ul class="list-unstyled ps-0">
+                  <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">
+                      Home
+                    </button>
+                  </li>
+                  <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                      Buyer's Guide
+                    </button>
+                    <div class="collapse show" id="dashboard-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a data-th-href="@{/guide/summary}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Summary</a></li>
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Benefits</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                      Detailed Topics
+                    </button>
+                    <div class="collapse" id="orders-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a data-th-href="@{/topics/sellback}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sellback of Solar Generated Electricity</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="border-top my-3"></li>
+                  <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                      Account
+                    </button>
+                    <div class="collapse" id="account-collapse">
+                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a></li>
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
+                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sign out</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col col-sm-1"></div>
+        <div class="col col-sm-9">
+          <div>
+            <h1>Summary</h1>
+            <p>Below is a summarized version of the guide to serve as a basic introduction of why and how to purchase a solar PV system in Singapore. To learn more about individual sections, please click on the relevant sections in the sidebar.</p>
+            <div id="benefits">
+              <h3>Benefits</h3>
+              <ul>
+                <li>Save on electricity costs by using solar generated electricity instead of puchasing it and/or selling back excess generated electricity to the electrical grid.
+                </li>
+                <li>Pays for itself within its lifetime, even as soon as 5-7 years under optimal conditions.</li>
+                <li>Additional revenue from selling RECs based on the PV system's electrical generation</li>
+                <li>A solar PV system typically raises property value of the building in which it is installed.</li>
+                <li>Additional roof protection from direct exposure</li>
+                <li>Use clean energy instead of energy mostly generated by burning natural gas, coal, and other petroleum products</li>
+                <li>Can be integrated with other equipment to provide monitoring of overall house electrical usage and solar generation, energy storage for backup power/grid independence, etc.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Who can get solar PV systems?</h3>
+              <ul>
+                <li>Building/Land Owners</li>
+                <li>Owners of units with ownership of the roof in a property (HDB/Condo Units)</li>
+              </ul>
+              <p>Most solar PV systems in Singapore are installed on buildings, typically on the roofs. If you own a landed property with available roof space, you can consider getting a solar PV system for the building.</p>
+              <ul>
+                <li>Alternatively, for those who own land with available space, ground based solar can be a viable choice depending on the conditions. Other possible variants can be Building Integrated PV systems to make full use of the empty areas on the building, PV systems on other fixed infrastructures like walkways, or floating PV for owned water spaces.</li>
+              </ul>
+              <p>For those who own individual units in owned property e.g. HDB flats/Condominium units, getting a typical roof-based PV system out of the question except for owners who actually own the roof of the property (comes with additional caveats). It is possible to get small solar panel kits not connected to the grid to generate electricity for small scale use but users may not get the full benefits of a larger roof-based system.</p>
+            </div>
+            <div>
+              <h3>What to prepare for contractor?</h3>
+              <p>Below is a non-exhaustive list of information to prepare for the contractor to design and install the solar PV system.</p>
+              <ul>
+                <li>New building (Installation only happens after receiving Certificate of Statutory Completion (CSC) or Temporary Occupation Permit), or existing building</li>
+                <li>Building Plans (Most important is the roof plan, floor plans also needed for components other than solar panels)</li>
+                <li>SLD for the building for electrical design and connection</li>
+                <li>Electricity Retailer electricity is purchased from; to determine payment method for sellback of solar generated electricity</li>
+                <li>Monthly electricity bill and when electricity is used; for estimation of savings, and additional modification of system</li>
+                <li>Request for certain equipment usually paired with solar PV system if contractor can offer and is suitable for owner (E.g. Energy Storage System, Electric Vehicle Charger).</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Types of payment</h3>
+              <ol>
+                <li>Lump sum payment</li>
+                <li>Rental/lease of PV system</li>
+                <li>Mix of the above</li>
+              </ol>
+              <p>There are three types of payment which are typically used in Singapore, with the first two being the most common.</p>
+              <p>Lump sum payment is basically paying for the PV system in full by the end of installation. Typically, unlike what it implies, payments are done in stages, corresponding to the stage of progress of the installation.</p>
+              <p>Rental/lease of PV system can be done in a few ways. It can be in the form of fixed monthly payments, or payments based on the amount of electricity used/generated (more commonly known as a Power Purchasing Agreement (PPA)).</p>
+            </div>
+            <div>
+              <h3>Regulartory Groups Involved</h3>
+              <ul>
+                <li>SP Group (by extension EMA)</li>
+                <li>SCDF</li>
+              </ul>
+              <p>Typically, the contractor will handle these interactions with third parties over regulations, but some forms require the owners to authorise certain things, such as approving net export rebate (sellback of excess solar generated electricity). In terms of regulators/authorities, SP Group regulates and inspects the installation of solar PV systems (electrical) in buildings connected to the electrical grid, as well as the transmission of the generated electricity into the grid; while SCDF does the same but with regards to fire safety of the PV systems</p>
+              <p>There may be other regulatory authorities involved, typically depending on the location of the building. E.g. URA for buildings in certain development zones.</p>
+            </div>
+            
+            <div>
+              <h3>Timeline</h3>
+              <div class="container" id="timeline"></div>
+              <p>Above is a timeline for the entire process of obtaining a solar PV system, based on a small residential PV system with little to no delays. It is also assumed that there is a large gap between installation For larger PV systems, design, installation time and other processes will take longer due to the increased complexity of the system and potential additional regulations and interactions with relevant authorities.</p>
+            </div>
+            
+          </div>
+        </div>
+    </div>
+    
+  </div>
+  <script th:inline="javascript">
+
+    $(document).ready(function() {
+        google.charts.load('current', {'packages':['corechart','timeline']});
+        google.charts.setOnLoadCallback(drawTimeline);
+    });
+
+    $(window).resize(function(){
+        drawTimeline();
+    });
+
+    function drawTimeline() {
+        var container = document.getElementById('timeline');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({type: 'string', id: 'Stage'});
+        dataTable.addColumn({type: 'string', id: 'Event'});
+        dataTable.addColumn({type: 'date', id: 'Start'});
+        dataTable.addColumn({type: 'date', id: 'End'});
+        dataTable.addRows([
+            ['Contact', 'Contact Contractor', new Date(2023,1,0,0,0,0), new Date(2023,1,1,0,0,0)],
+            ['Information Gathering', 'Site Survey (1 day)', new Date(2023,1,4,0,0,0) , new Date(2023,1,5,0,0,0)],
+            ['Information Gathering', 'Review Documents and Regulations', new Date(2023,1,1,0,0,0) , new Date(2023,1,12,0,0,0)],
+            ['Design and Planning', 'Design of PV System', new Date(2023,1,5,0,0,0) , new Date(2023,1,12,0,0,0)],
+            ['Contract Signing', 'Review of Contractor Proposal and Design & Contract Signing', new Date(2023,1,12,0,0,0), new Date(2023,1,13,0,0,0)],
+            ['Installation', 'Interaction with Relevant Authorities for Approvals and Submission of Forms by Contractor', new Date(2023,1,13,0,0,0), new Date(2023,1,65,0,0,0)],
+            ['Installation', 'Installation of PV System', new Date(2023,1,27,0,0,0), new Date(2023,1,34,0,0,0)],
+            ['Installation', 'Testing of PV System', new Date(2023,1,34,0,0,0), new Date(2023,1,36,0,0,0)],
+            ['Installation', 'SP Inspection and Turn-on of PV System', new Date(2023,1,64,0,0,0), new Date(2023,1,65,0,0,0)]
+        ]);
+
+        chart.draw(dataTable);
+    }
+  </script>
+    
+</body>
+</html>
