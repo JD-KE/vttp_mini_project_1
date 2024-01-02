@@ -315,6 +315,13 @@
             chart.draw(data, options);
         }
     </script>
+    <script>
+        $(document).ready(function() {
+            if (window.location.href.includes("submitDate")) {
+                document.getElementById("ECISdata").scrollIntoView();
+            }
+        })
+    </script>
     
 </body>
 </html>
