@@ -12,4 +12,9 @@ public class DisplayController {
     public String homepage() {
         return "index";
     }
+
+    @GetMapping("/about")
+    public String aboutpage() {
+        return "about";
+    }
 }

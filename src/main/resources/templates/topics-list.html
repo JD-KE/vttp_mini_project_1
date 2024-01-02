@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Topics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div data-th-replace="~{fragments/header}"></div>
+    <hr>
+    <div class="container d-none d-sm-block">
+        <div class="row">
+            <div class="col">
+                <div class="card text-bg-dark position-relative" >
+                    <img data-th-src="@{${'/images/PV_System_Image1_stretched.jpg'}}" class="card-img" alt="Image of Solar PV System" style="min-height: 300px;min-width: 600px;">
+                    <div class="card-img-overlay position-absolute top-50 start-50 translate-middle">
+                        <h1 class="card-title text-center" style="font-size: clamp(2rem, 3vw, 5rem);">Detailed Topics</h1>
+                        <br>
+                        <h1 class="card-title text-center" style="font-size: clamp(1rem, 2vw, 2rem);">List of Topics</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container d-block d-sm-none">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center" style="font-size: 3rem;">Detailed Topics</h1>
+                <br>
+                <h3 class="text-center">Sellback of Solar Generated Electricity</h3>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-2">
+				<div class="flex-shrink-0 p-3 sticky-top" >
+					<a data-th-href="@{/index.html}" class="d-flex justify-content-center align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+					    <span class="fs-5 fw-semibold">SolarSG</span>
+					</a>
+                    <div>
+						<div class="d-flex justify-content-center mb-3">
+							<a data-th-href="@{/index.html}" class="btn btn-outline-primary">Home</a>
+						</div>
+                        <div class="d-flex justify-content-center mb-3">
+							<a data-th-href="@{/about}" class="btn btn-outline-primary">About</a>
+						</div>
+						<div class="dropdown d-flex justify-content-center mb-3">
+							<button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							  Buyer's Guide
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a data-th-href="@{/guide}" class="dropdown-item">
+									Summary
+									</a>
+								</li>
+								<li>
+									<a href="#" class="dropdown-item disabled">
+                                        WIP
+                                    </a>
+								</li>
+								
+							</ul>
+						</div>
+						<div class="dropdown d-flex justify-content-center mb-3">
+							<button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							  Detailed Topics
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a data-th-href="@{/topics}" class="dropdown-item">
+									List of Topics
+									</a>
+								</li>
+								
+								<li><hr class="dropdown-divider"></li>
+								<li><span class="dropdown-header">Featured Topics</span></li>
+								<li>
+									<a data-th-href="@{/topics/sellback}" class="dropdown-item">
+									Sellback of Solar Generated Electricity
+									</a>
+								</li>	
+							</ul>
+						</div>
+						<div class="d-flex justify-content-center mb-3">
+							<a data-th-href="@{/quote}" class="btn btn-outline-primary">Quote Request</a>
+						</div>
+                    </div>
+					<hr>
+					<div class="dropdown d-flex justify-content-center mb-3">
+						<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						  Content
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+                                <a href="#list" class="dropdown-item" onclick="document.getElementById('list').scrollIntoView();event.preventDefault()">
+                                List of Topics
+                                </a>
+                            </li>
+							<li>
+                                <a href="#sellback" class="dropdown-item" onclick="document.getElementById('sellback').scrollIntoView();event.preventDefault()">
+                                    Sellback of Solar Generated Electricity
+                                </a>
+                            </li>
+							
+						</ul>
+					</div>
+                    <div class="d-flex justify-content-center mb-3">
+                        <a href="#" class="btn btn-outline-primary" onclick="document.body.scrollTop=0;document.documentElement.scrollTop=0;event.preventDefault()">Back to Top</a>
+                    </div>
+                    
+				</div>
+			</div>
+            <div class="col col-sm-1"></div>
+            <div class="col col-sm-9">
+                <div>
+                    <div id="list">
+                        <h3>
+                            List of Topics
+                        </h3>
+                        <p>Here you can find a list of Solar PV and related topics in depth topics.</p>
+                    </div>
+                    <div id="sellback">
+                        <ul>
+                            <li><a data-th-href="@{/topics/sellback}">Sellback of Solar Generated Electricity</a></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-th-replace="~{fragments/footer}"></div>
+    
+</body>
+</html>

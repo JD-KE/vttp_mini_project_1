@@ -16,7 +16,7 @@ public class VttpMiniProject1Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		String availableDate = LocalDate.now().minusDays(10L).toString();
+		String availableDate = LocalDate.now().minusDays(12L).toString();
 
 		System.out.println(availableDate);
 

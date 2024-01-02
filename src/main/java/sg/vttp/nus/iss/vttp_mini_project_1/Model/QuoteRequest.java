@@ -9,57 +9,62 @@ public class QuoteRequest {
 
     @NotBlank(message="Please enter your given name.")
     @Size(min=2, max = 20, message = "Given name must be between 2-20 characters")
-    public String givenName;
+    private String givenName;
 
     @NotBlank(message="Please enter your family name.")
     @Size(min=2, max = 20, message = "Family name must be between 2-20 characters")
-    public String familyName;
+    private String familyName;
 
     @Email
     @NotBlank(message = "Email is required.")
     @Size(max = 50, message = "Maximum of 50 characters allowed.")
-    public String email;
+    private String email;
 
-    @Pattern(regexp = "(8|9)[0-9]{7}", message = "Invalid phone number entered.")
-    public String mobileNo;
+    @Pattern(regexp = "(8|9)[0-9]{7}", message = "Invalid phone number entered. Please enter a valid Singapore Phone Number starting with 8/9.")
+    private String mobileNo;
 
     @NotBlank(message = "Contact Address is required.")
     @Size(min=10, max = 50, message = "Contact address must be between 10-50 characters.")
-    public String contactAddress;
+    private String contactAddress;
     
     @Size(max = 50, message = "Maximum of 50 characters allowed.")
-    public String siteAddress;
+    private String siteAddress;
 
     @NotBlank(message = "Please select one of the sites most relevant to you.")
-    public String siteType;
+    private String siteType;
 
     @NotBlank(message = "Please select a roof type. If not installing on a roof, select others.")
-    public String roofType;
+    private String roofType;
 
     @Pattern(regexp = "^[1-9][0-9]*$|^[0]*$", message = "Monthly Bill must be either a whole number or 0, no leading zeros allowed.")
-    public String monthlyBill;
+    private String monthlyBill;
 
     @NotBlank(message = "Electricity Retailer is required.")
-    public String electricityRetailer;
+    private String electricityRetailer;
 
     @NotBlank(message = "Please select one of the options")
-    public String electricityUsage;
+    private String electricityUsage;
 
     @NotBlank(message = "Please select one of the options.")
-    public String expectedInstallTime;
+    private String expectedInstallTime;
 
-    public boolean contactPermission;
+    private boolean contactPermission;
 
     
     public QuoteRequest(
-           String givenName,
-           String familyName,
-            String email,
-            String mobileNo,
-            String contactAddress,
-            String siteAddress,
-            String siteType, String roofType, String monthlyBill, String electricityRetailer,
-            String electricityUsage, String expectedInstallTime, boolean contactPermission) {
+        String givenName,
+        String familyName,
+        String email,
+        String mobileNo,
+        String contactAddress,
+        String siteAddress,
+        String siteType,
+        String roofType,
+        String monthlyBill,
+        String electricityRetailer,
+        String electricityUsage,
+        String expectedInstallTime,
+        boolean contactPermission) {
         this.givenName = givenName;
         this.familyName = familyName;
         this.email = email;

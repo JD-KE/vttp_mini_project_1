@@ -1,5 +1,8 @@
 package sg.vttp.nus.iss.vttp_mini_project_1.Repo;
 
+import java.io.Reader;
+import java.io.StringReader;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.HashOperations;
@@ -7,6 +10,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import jakarta.annotation.Resource;
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
+import jakarta.json.JsonReader;
 import sg.vttp.nus.iss.vttp_mini_project_1.Model.QuoteRequest;
 
 @Repository
@@ -20,7 +26,23 @@ public class QuoteRequestRepo {
 
     public String createRequest(QuoteRequest quoteRequest) {
         String idString = generateId();
-        hashOps.put("quoteRequests",idString,quoteRequest.toString());
+        JsonObject requestJson = Json.createObjectBuilder()
+            .add("given_name", quoteRequest.getGivenName())
+            .add("family_name", quoteRequest.getFamilyName())
+            .add("email", quoteRequest.getEmail())
+            .add("phone_number", quoteRequest.getMobileNo())
+            .add("contact_address", quoteRequest.getContactAddress())
+            .add("site_address", quoteRequest.getSiteAddress())
+            .add("site_type", quoteRequest.getSiteType())
+            .add("roof_type", quoteRequest.getRoofType())
+            .add("monthly_bill", quoteRequest.getMonthlyBill())
+            .add("electricity_retailer", quoteRequest.getElectricityRetailer())
+            .add("electricity_usage", quoteRequest.getElectricityUsage())
+            .add("expected_install_time", quoteRequest.getExpectedInstallTime())
+            .add("contact_contractors", Boolean.valueOf(quoteRequest.getContactPermission()).toString())
+            .build();
+
+        hashOps.put("quoteRequests",idString,requestJson.toString());
         
         return idString;
     }
@@ -39,27 +61,28 @@ public class QuoteRequestRepo {
     }
 
     public boolean hasRequest(String trackingNumber) {
-        hashOps.hasKey("quoteRequests",trackingNumber);
         return hashOps.hasKey("quoteRequests",trackingNumber);
     }
 
     public QuoteRequest getRequest(String id) {
         String requestString = hashOps.get("quoteRequests", id);
-        String[] requestComponents = requestString.split(", ");
+        Reader reader = new StringReader(requestString);
+        JsonReader jsonReader = Json.createReader(reader);
+        JsonObject requestJson = jsonReader.readObject();
         QuoteRequest request = new QuoteRequest(
-            requestComponents[0].substring(10),
-            requestComponents[1].substring(11),
-            requestComponents[2].substring(6),
-            requestComponents[3].substring(9),
-            requestComponents[4].substring(15),
-            requestComponents[5].substring(12),
-            requestComponents[6].substring(9),
-            requestComponents[7].substring(9),
-            requestComponents[8].substring(12),
-            requestComponents[9].substring(20),
-            requestComponents[10].substring(17),
-            requestComponents[11].substring(20),
-            Boolean.valueOf(requestComponents[12].substring(17))
+            requestJson.getString("given_name"),
+            requestJson.getString("family_name"),
+            requestJson.getString("email"),
+            requestJson.getString("phone_number"),
+            requestJson.getString("contact_address"),
+            requestJson.getString("site_address"),
+            requestJson.getString("site_type"),
+            requestJson.getString("roof_type"),
+            requestJson.getString("monthly_bill"),
+            requestJson.getString("electricity_retailer"),
+            requestJson.getString("electricity_usage"),
+            requestJson.getString("expected_install_time"),
+            Boolean.valueOf(requestJson.getString("contact_contractors"))
         );
         return request;
     }

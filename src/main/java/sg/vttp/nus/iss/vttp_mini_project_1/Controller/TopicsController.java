@@ -22,14 +22,20 @@ public class TopicsController {
     @Autowired
     ECISPriceService priceSvc;
 
+    @GetMapping(path = {"","/list"})
+    public String listTopicsPage() {
+        return "topics-list";
+    }
+    
     @GetMapping(path = "/sellback")
     public String sellbackPage(@RequestParam(value = "submitDate", required = false) Optional<String> dateOpt, Model model) {
 
         String availableDate = LocalDate.now().minusDays(10L).toString();
+        String safeAvailableDate = LocalDate.now().minusDays(13L).toString();
         String date;
 
         if (dateOpt.isEmpty()) {
-            date = availableDate;
+            date = safeAvailableDate;
         } else {
             date = dateOpt.get();
         }
@@ -40,8 +46,8 @@ public class TopicsController {
             ECISdata = priceSvc.getECISPrice(date);
             model.addAttribute("graphDate", date); 
         } else {
-            ECISdata = priceSvc.getECISPrice(availableDate);
-            model.addAttribute("graphDate", availableDate); 
+            ECISdata = priceSvc.getECISPrice(safeAvailableDate);
+            model.addAttribute("graphDate", safeAvailableDate); 
         }
 
         Map<Integer,String> graphData = new HashMap<>();

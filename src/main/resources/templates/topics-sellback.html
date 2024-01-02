@@ -10,166 +10,292 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-primary">
-    <div class="container-fluid justify-content-center">
-      <a class="navbar-brand text-white" data-th-href="@{/index.html}">SolarSG</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" data-th-href="@{/index.html}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Buyer's Guide
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" data-th-href="@{/guide/summary}">Summary</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Benefits</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Detailed Topics
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" data-th-href="@{/topics/sellback}">Sellback of Solar Generated Electricity</a></li>
-            </ul>
-          </li>
-          
-        </ul>
-        
-      </div>
-    </div>
-  </nav>
-  <hr>
-  <!-- <div class="container-fluid w-75">
-    <div class="card text-bg-dark d-flex justify-content-center">
-      <img class="card-img-top" data-th-src="@{${'/images/PV_System_Image1_stretched.jpg'}}" alt="Image of Solar PV System">
-      <div class="card-img-overlay">
-        <br><br><br><br>
-        <h1 class="card-title text-center" style="font-size: 5rem;">Detailed Topics</h1>
-        <br>
-        <h1 class="card-text text-center">Sellback of Solar Generated Electricity</h1>
-      </div>
-    </div>
-  </div> -->
-  <div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="card text-bg-dark position-relative" >
-                <img data-th-src="@{${'/images/PV_System_Image1_stretched.jpg'}}" class="card-img" alt="Image of Solar PV System" style="min-height: 600px;">
-                <div class="card-img-overlay position-absolute top-50 start-50 translate-middle">
-                  <h1 class="card-title text-center">Detailed Topics</h1>
-                  <br>
-                  <h2 class="card-title text-center">Sellback of Solar Generated Electricity</h1>
+    <div data-th-replace="~{fragments/header}"></div>
+    <hr>
+    <div class="container d-none d-sm-block">
+        <div class="row">
+            <div class="col">
+                <div class="card text-bg-dark position-relative" >
+                    <img data-th-src="@{${'/images/PV_System_Image1_stretched.jpg'}}" class="card-img" alt="Image of Solar PV System" style="min-height: 300px;min-width: 600px;">
+                    <div class="card-img-overlay position-absolute top-50 start-50 translate-middle">
+                        <h1 class="card-title text-center" style="font-size: clamp(2rem, 3vw, 5rem);">Detailed Topics</h1>
+                        <br>
+                        <h1 class="card-title text-center" style="font-size: clamp(1rem, 2vw, 2rem);">Sellback of Solar Generated Electricity</h1>
+                    </div>
                 </div>
-              </div>
-        </div>
-    </div>
-  </div>
-  <br>
-  <div class="container">
-    <div class="row">
-        <div class="col col-sm-2">
-            <div class="flex-shrink-0 p-3 sticky-top" >
-                <!-- style="width: 280px;" -->
-                <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-                  <span class="fs-5 fw-semibold">Content</span>
-                </a>
-                <ul class="list-unstyled ps-0">
-                  <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">
-                      Home
-                    </button>
-                  </li>
-                  <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
-                      Buyer's Guide
-                    </button>
-                    <div class="collapse" id="dashboard-collapse">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a data-th-href="@{/guide/summary}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Summary</a></li>
-                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Benefits</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                      Detailed Topics
-                    </button>
-                    <div class="collapse show" id="orders-collapse">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a data-th-href="@{/topics/sellback}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sellback of Solar Generated Electricity</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="border-top my-3"></li>
-                  <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                      Account
-                    </button>
-                    <div class="collapse" id="account-collapse">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a></li>
-                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
-                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
-                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sign out</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
             </div>
         </div>
-        <div class="col col-sm-1"></div>
-        <div class="col col-sm-9">
-          <div>
-            
-          
-            <div class="container">
-              <h3>Sellback Price (Half-hour Periods) under ECIS</h3>
-              <div class="mb-3" id="chart_div"></div>
-              <form method="GET" data-th-action="@{/topics/sellback}">
-                <label class="form-label" for="submitDate">Select date to display sellback price for that date</label>
-                <input type="date" id="submitDate" name="submitDate" id="submitDate" min="2018-01-01" data-th-attr="value=${graphDate},max=${availableDate}">
-                <button type="submit">Submit</button>
-              </form>
-              <div>
-                <p class="text-danger" data-th-if="${validate == false}">*Please select a date from 1st Jan 2018 to 10 days ago.</p>
-              </div>
-              <p>
-                Text
-              </p>
+    </div>
+    <div class="container d-block d-sm-none">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center" style="font-size: 3rem;">Detailed Topics</h1>
+                <br>
+                <h3 class="text-center">Sellback of Solar Generated Electricity</h3>
             </div>
-            
-          </div>
         </div>
     </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-2">
+				<div class="flex-shrink-0 p-3 sticky-top" >
+					<a data-th-href="@{/index.html}" class="d-flex justify-content-center align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+					    <span class="fs-5 fw-semibold">SolarSG</span>
+					</a>
+                    <div>
+						<div class="d-flex justify-content-center mb-3">
+							<a data-th-href="@{/index.html}" class="btn btn-outline-primary">Home</a>
+						</div>
+                        <div class="d-flex justify-content-center mb-3">
+							<a data-th-href="@{/about}" class="btn btn-outline-primary">About</a>
+						</div>
+						<div class="dropdown d-flex justify-content-center mb-3">
+							<button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							  Buyer's Guide
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a data-th-href="@{/guide}" class="dropdown-item">
+									Summary
+									</a>
+								</li>
+								<li>
+									<a href="#" class="dropdown-item disabled">
+                                        WIP
+                                    </a>
+								</li>
+								
+							</ul>
+						</div>
+						<div class="dropdown d-flex justify-content-center mb-3">
+							<button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							  Detailed Topics
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a data-th-href="@{/topics}" class="dropdown-item">
+									List of Topics
+									</a>
+								</li>
+								
+								<li><hr class="dropdown-divider"></li>
+								<li><span class="dropdown-header">Featured Topics</span></li>
+								<li>
+									<a data-th-href="@{/topics/sellback}" class="dropdown-item">
+									Sellback of Solar Generated Electricity
+									</a>
+								</li>	
+							</ul>
+						</div>
+						<div class="d-flex justify-content-center mb-3">
+							<a data-th-href="@{/quote}" class="btn btn-outline-primary">Quote Request</a>
+						</div>
+                    </div>
+					<hr>
+					<div class="dropdown d-flex justify-content-center mb-3">
+						<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						  Content
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+                                <a href="#intro" class="dropdown-item" onclick="document.getElementById('intro').scrollIntoView();event.preventDefault()">
+                                Introduction
+                                </a>
+                            </li>
+							<li>
+                                <a href="#SCS" class="dropdown-item" onclick="document.getElementById('SCS').scrollIntoView();event.preventDefault()">
+                                Simplified Credit Scheme (SCS)
+                                </a>
+                            </li>
+							<li>
+                                <a href="#ECIS" class="dropdown-item" onclick="document.getElementById('ECIS').scrollIntoView();event.preventDefault()">
+                                Enhanced Central Intermediary Scheme (ECIS)
+                                </a>
+                            </li>
+							<li>
+                                <a href="#ECISdata" class="dropdown-item" onclick="document.getElementById('ECISdata').scrollIntoView();event.preventDefault()">
+                                Sellback Price (Half-hour Periods) under ECIS 
+                                </a>
+                            </li>
+							<li>
+                                <a href="#mp" class="dropdown-item" onclick="document.getElementById('mp').scrollIntoView();event.preventDefault()">
+                                Market Participant
+                                </a>
+                            </li>
+							<li>
+								<a href="#others" class="dropdown-item" onclick="document.getElementById('others').scrollIntoView();event.preventDefault()">
+                                    Other ways to Profit of Solar
+								</a>
+							</li>
+						</ul>
+					</div>
+                    <div class="d-flex justify-content-center mb-3">
+                        <a href="#" class="btn btn-outline-primary" onclick="document.body.scrollTop=0;document.documentElement.scrollTop=0;event.preventDefault()">Back to Top</a>
+                    </div>
+                    
+				</div>
+			</div>
+            <div class="col col-sm-1"></div>
+            <div class="col col-sm-9">
+                <div>
+                    <div id="intro">
+                        <h1>Sellback of Solar Generated Electricity</h1>
+                        <p>Within this topic, we will go through how solar PV system owners can sell any excess generated electricity from their system after their electrical appliances have used , ranging from small to large systems, and depending on the electricity retailer.</p>
+                        <p>To summerize here, depending on the below for the owner: </p>
+                        <div class="d-flex justify-content-evenly">
+                            <div>
+                                <h5>Solar PV System AC Capacity (at point of connection to grid)</h5>
+                                <ul>
+                                    <li>&lt; 1MW, typically residential/commercial properties</li>
+                                    <li>&gt; 1MW and &lt; 10 MW in Capacity, typically commercial/industrial properties </li>
+                                    <li>&lt; 10MW in Capacity, most are likely to be industrial/utility</li>
+                                    <li>Property types in each of the above not non-exhaustive</li>
+                                    
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Electricity Retailer</h5>
+                                <ul>
+                                    <li>SP Group (Non-contestable consumer)</li>
+                                    <li>Other Retailers (Contestable consumer)</li>
+                                </ul>
+                            </div>                        
+                        </div>
+                        <p>There are three different schemes to sellback the excess electricity back into the grid:</p>
+                        <div>
+                            <ul>
+                                <li>Simplified Credit Scheme (SCS): For &lt; 1MW capacity and SP Group </li>
+                                <li>Enhanced Central Intermediary Scheme (ECIS):
+                                    <br><span>For either &lt; 1MW capacity and Other Retailers, or as an option for &gt; 1MW and &lt; 10 MW capacity</span>
+                                </li>
+                                <li>Market Participant: <span>For either as an option for &gt; 1MW and &lt; 10 MW capacity, or &gt; 10MW capacity</span>
+
+                                </li>
+                            </ul>
+                        </div>
+                        <p>In addition, in order for the relevant companies to pay owners accurately, new meters must be installed fulfilling certain criteria. These meters can be private meters installed by the owner, or meters installed (and optionally maintained) SP Group. Alternatively, owners can opt to instead use the Solar Generation Profile, a daily electricity generation profile based on historical data in Singapore that is scalable with capacity, to estimate how much electricity is generated by the solar PV system, and thus how much is to be paid back to the owner.</p>
+                        <p>A general summary of the payment schemes can found at <a href="https://www.ema.gov.sg/consumer-information/solar/solar-installation-guide">EMA's solar installation guide</a>.</p>
+                    </div>
+                    <hr>                    
+                    <div id="SCS">
+                        <h3>Simplified Credit Scheme (SCS)</h3>
+                        <p>This is a simplified scheme for owners with systems &lt; 1MW capacity and purchasing electricity from SP Group (Non-contestable consumers). Under this scheme, SP Group monitors both the electricity consumed by the owner from the grid and the excess generated electricity from the solar PV system exported into the grid with their installed meter (The old one-way meter should now be replaced by a bi-directional meter to facilitate this).</p>
+                        <p>Owners under this scheme will receive the monetary proceedings from selling their excess generated electricity as credit in their SP account, and is reflected their utility bill. These credits will be used to offset their overall utility bill; if there are leftover credits, they will be carried over to the next month.</p>
+                        <p>The sellback price price per unit electrical energy is based on the prevailing tariff rates, but minus the <em>grid network charges component</em>, which typically ends up being 75-80% of the electricity tariff most of the time. You can find the current tariff and its breakdown at <a href="https://www.spgroup.com.sg/our-services/utilities/tariff-information">SP Group's page</a> as well as historical tariff data for download.
+                            <ul>
+                                <li>Note that the tariff mentioned is for low tension supply (230V Single Phase/ 400V Three Phase). Propertiess with higher tension electricity supplies from the grid are subject to different pricing and can be found in the link above.</li>
+                            </ul>
+                        </p>
+
+                    </div>
+                    <hr>
+                    <div id="ECIS">
+                        <h3>Enhanced Central Intermediary Scheme (ECIS)</h3>
+                        <p>This is a scheme that has been previously improved to allow for an easier registration process for selling excess generated electricity from solar PV. It is for those who are either purchasing electricity from retailers instead of SP Group (Contestable consumers), and/or have a solar PV system &lt; 10MW capacity.
+                            <ul>
+                                <li>Owners may choose to opt out of the scheme. This can be because there is no excess generated electricity to sell; all of it is used for appliances/equipment already. Or they want to store and use the electricity for themselves.</li>
+                                <li>Alternatively, owners may choose to participate directly as a market participant in the open electricity market themselves. One likely reason it because the solar PV system is meant to generate electricity and export it most of it into the grid like a utility power plant, with a small amount for facilities and equipment on-site. </li>
+                            </ul>
+                        </p>
+                        <p>The reason why this is simplified is that owners interact with SP Services as an intermediary to receive their payment under a SP generation account, instead of dealing with the Energy Market Company directly as a market participant with large fees (upfront and annual) with more rules and regulations to follow.
+                            <ul>
+                                <li>To put it simply, owner get paid via SP services from EMC instead of EMC directly without the additional hassle of registering as and being a market participant in the energy market.</li>
+                            </ul>
+                        </p>
+                        <p>As for how much owners get paid per unit electricity, it is based on:
+                            <ul>
+                                <li><q>...the prevailing half-hourly wholesale electricity prices.</q> EMA</li>
+                            </ul> 
+                            Which is technically true. The thing is, as the author found out during their time in the industry from a colleague, it is not the wholesale electricity price exactly that is used, but a slightly different price that can be accessed from the EMC's website as can be seen below. In terms of price difference, there a slight fluctuations in the half-hourly price by 1-3% (sometimes up to 6%) between the two. Users can view the half hourly data below
+                        </p>
+
+                    </div>
+                    <hr>
+                    <div id="ECISdata">
+                        <h3>Sellback Price (Half-hour Periods) under ECIS</h3>
+                        <div class="mb-3" id="chart_div"></div>
+                        <form method="GET" data-th-action="@{/topics/sellback}">
+                            <label class="form-label" for="submitDate">Select date to display sellback price for that date. Selectable dates range from 1st Jan 2018 to 6 business days ago.
+                                <ul>
+                                    <li>Each period represents a half hour in a standard day. E.g. period 1 is 0000 - 0030, period 2 is 0030 - 0100</li>
+                                    <li>(Ranges from 10-12 days ago due to public holidays and non-consistant upload timing; if latest selectable date has no data, select the 1-3 days before then for latest available data).</li>
+                                </ul>
+                            </label>
+                            <input type="date" id="submitDate" name="submitDate" min="2018-01-01" data-th-attr="value=${graphDate},max=${availableDate}">
+                            <button type="submit">Submit</button>
+                        </form>
+                        <div>
+                            <p class="text-danger" data-th-if="${validate == false}">*Please select a date from 1st Jan 2018 to 6 business days ago (Ranges from 10-12 days ago due to public holidays and non-consistant upload timing). </p>
+                        </div>
+                        <p>
+                            The above chart data can be downloaded in CSV format at <a href="https://www.nems.emcsg.com/nems-prices">the Energy Market Company's website</a> by inputing the following into the form: 
+                        </p>
+                        <ul>
+                            <li>Final Prices and Information on Registered Facilities: Nodal Energy Prices</li>
+                            <li>Network Node: "IGS_A : SPSVCS : GENR 1"</li>
+                        </ul>
+                        <p></p>
+                    </div>
+                    <hr>
+                    <div id="mp">
+                        <h3>Market Participant (MP)</h3>
+                        <p>The last method of payback is to directly participate in the open electricity market and sell the excess generated electricity. For owners with solar PV systems &gt; 10MW capacity, they have to do so to sell the excess electricity; for those with &gt; 1MW and &lt; 10 MW, they can opt for being a MP or participating in the ECIS as mentioned above.</p>
+                        <p>As covered above, market participants have to pay upfront and annual fees to participate in the market. They also have to follow regulations related to the transmission of electricity into the grid, meet additional technical requirements related to the above and for monitoring the quantity and quality of the electricity exported, open a bank account for market particapation, etc.</p>
+                        <p>Usually, MPs are often power plants, so this method of selling back electricity is more for PV systems meant to generate and export electricity. If owners can choose between ECIS or being a MP, they have consider whether their energy usage, energy generation, and the resources avaiable are best suited for each method. Of course, it is possible to have another entity handle the work of being a MP while representing the owner of the solar PV system.</p>
+                        <p>Additonal details can be found in the <a href="https://www.nems.emcsg.com">EMC website</a>. Users can also go to the prices page in the ECIS price section above to see the nodal prices of power plants, including some large scale solar PV plants.
+                            <ul>
+                                <li>The prices are called nodal prices as they represent the electricity price in the market for the nodes in the grid where the generated electricity in exported/injected into the electricity grid. The weighted average of these prices become the wholesale electricity price as mentioned in the ECIS section.</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <hr>
+                    <div id="others">
+                        <h3>Other ways to Profit of Solar?</h3>
+                        <p>Alongside selling excess generated electricity back into the grid, there are other ways of making money of a solar PV system:</p>
+                        <ul >
+                            <li>Renewable Energy Certificates (RECs) <br>
+                                
+                                <ul>
+                                    <li>From SP Group: <q>Renewable Energy Certificate (REC) is a type of Energy Attribute Certificate (EAC) that represents the environmental attributes of the generation of a one-megawatt hour (MWh) of energy produced by renewable sources. </q>
+                                    </li>
+                                    <li>Can be traded to other entities for them to claim that their energy usage is environmentally-friendly through possession of these certificates</li>
+                                </ul>
+
+                            </li>
+                            <li>Power Purchasing Agreements between owners and purchases</li>
+                            <li>Grid services (Frequency Regulation, At Night Reactive Power Compensation) - more for large scale utlity</li>
+                        </ul>
+                        <p>
+                            The above will be covered in future articles. Stay tuned.
+                        </p>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div data-th-replace="~{fragments/footer}"></div>
     
-  </div>
-  <script th:inline="javascript">
-    var real_data = /*[[${graphData}]]*/'noValue';
-    var graph_date =  /*[[${graphDate}]]*/'noValue';
+    <script th:inline="javascript">
+        var real_data = /*[[${graphData}]]*/'noValue';
+        var graph_date = /*[[${graphDate}]]*/'noValue';
 
-    $(document).ready(function() {
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-    });
+        $(document).ready(function() {
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+        });
 
-    $(window).resize(function(){
-        drawChart();
-    });
+        $(window).resize(function(){
+            drawChart();
+        });
 
-    function drawChart() {
+        function drawChart() {
             var data = new google.visualization.DataTable();
             data.addColumn('number', 'Period');
-            data.addColumn('number', 'Price/Power');
+            data.addColumn('number', 'Price/Energy(S$/kWh)');
             Object.keys(real_data).forEach(function(key) {
                 data.addRow([parseInt(key), parseFloat(real_data[key])]);
                 console.log(parseFloat(real_data[key]));
@@ -188,7 +314,7 @@
             var chart = new google.visualization.SteppedAreaChart(document.getElementById('chart_div'));
             chart.draw(data, options);
         }
-  </script>
+    </script>
     
 </body>
 </html>
